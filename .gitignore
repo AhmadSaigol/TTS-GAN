@@ -128,8 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-.zip
-UniMiB/
+*.zip
+UniMiB-SHAR/
 logs/
 logs_txt/
 

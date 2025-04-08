@@ -1,0 +1,63 @@
+"--rank", "0",
+                "--max_epoch", "15",
+                "--max_iter", "250",
+
+                "--gen_batch_size", "32",
+                "--dis_batch_size", "32",
+                "--batch_size", "32",
+
+                "--g_lr", "0.0001",
+                "--d_lr", "0.0003",
+
+                "--beta1", "0.9", 
+                "--beta2", "0.999",
+                
+                "--dropout", "0.5",
+                "--forward_dropout", "0.5",
+
+                "--latent_dim", "100",
+                "--channels", "8",
+                
+                "--n_critic", "1", 
+                
+                "--val_freq", "10",
+                "--print_freq", "25",
+
+                "--dataset", "particle_data",
+                "--data_path", "/home/ahmad/Documents/Masters - TUHH/Research Project/timeGAN/data/PM2.5_bins_split_type_kfold_files_REFs_QTIs",
+                "--which_folder_data", "QTI",
+                "--fold_no", "1",
+                "--upsample_Y",
+
+                "--init_type", "xavier_uniform", 
+                
+                "--gf_dim", "10",
+                "--df_dim", "50", 
+                
+                "--num_eval_imgs", "50000", 
+ 
+                "--optimizer", "adam", 
+                "--loss", "lsgan", 
+                
+                "--d_depth", "3", 
+                "--g_depth", "5", 
+
+                "--patch_size", "15", 
+                
+                "--d_heads", "5",
+                "--g_heads", "5" ,
+
+                "--seq_len", "300",  
+                
+                "--grow_steps","0", "0",
+                
+                "--gen_model", "my_gen", 
+                "--dis_model", "my_dis",
+                
+                "--ema_kimg", "500",
+                "--ema_warmup", "0.1",
+                "--ema", "0.9999",
+                "--world-size",  "1",
+
+                "--exp_name", "test_pd",
+                "--class_name", "particle_data"

@@ -1,0 +1,61 @@
+"args": [
+                "--rank", "0",
+                "--max_epoch", "15",
+                "--max_iter", "75",
+
+                "--gen_batch_size", "16",
+                "--dis_batch_size", "16",
+                "--batch_size", "16",
+
+                "--g_lr", "0.0001",
+                "--d_lr", "0.0003",
+
+                "--beta1", "0.9", 
+                "--beta2", "0.999",
+                
+                "--dropout", "0.5",
+                "--forward_dropout", "0.5",
+
+                "--latent_dim", "100",
+                "--channels", "3",
+                
+                "--n_critic", "1", 
+                
+                "--val_freq", "10",
+                "--print_freq", "25",
+
+                "--class_name", "Running", 
+                "--exp_name", "Running",
+
+                "--dataset", "UniMiB",
+                "--data_path", "UniMiB-SHAR",
+                "--init_type", "xavier_uniform", 
+                
+                "--gf_dim", "10",
+                "--df_dim", "50", 
+                
+                "--num_eval_imgs", "50000", 
+ 
+                "--optimizer", "adam", 
+                "--loss", "lsgan", 
+                
+                "--d_depth", "3", 
+                "--g_depth", "5", 
+
+                "--patch_size", "15", 
+                
+                "--d_heads", "5",
+                "--g_heads", "5" ,
+
+                "--seq_len", "150",  
+                
+                "--grow_steps","0", "0",
+                
+                "--gen_model", "my_gen", 
+                "--dis_model", "my_dis",
+                
+                "--ema_kimg", "500",
+                "--ema_warmup", "0.1",
+                "--ema", "0.9999",
+                "--world-size",  "1"
+            ]

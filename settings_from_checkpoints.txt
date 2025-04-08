@@ -1,0 +1,41 @@
+    # JUMPING CHECKPOINTS DETAILS
+    # epoch = 834
+    # GENERATOR
+    # latent dim = 100
+    # embed dim =  10
+    # depth = 3
+    # seq_len = 150
+    # expansion = 4
+    # channels = 3
+    # heads =5? projection (50-> )?
+    # step 500400
+    
+    # Discrimator
+    # embed size 50
+    # [11, 50] -> (seq=150/patch_size=15)+1, embed size=50
+    # patch size = 15 in channels =3
+    # depth = 3
+    # heads = 5? queriers (50 -> 5 *10)
+    # classes 1
+    # step 500400
+    
+    # best fid?
+    
+    # RUNNING CHECKPOINTS DETAILS
+    # epoch = 2564
+    # GENERATOR
+    # seq = 150
+    # embed dim = 10
+    # latent dim 100
+    # depth = 3
+    # step 128200
+    
+    # Discrimator
+    # embed size 50
+    # [11, 50] -> (seq=150/patch_size=15)+1, embed size=50
+    # patch size = 15
+    # channels = 3
+    ## depth = 3
+    # step 128200
+     # best fid?
+    
