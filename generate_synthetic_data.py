@@ -73,8 +73,8 @@ def generate_synthetic_data(path_to_run, sample_size, cp='all', denormalize=Fals
         g_depth = g_depth
         d_depth = d_depth
     elif model_type=='informerstack':
-        g_depth = [int(s_l) for s_l in g_s_layers.replace(' ','').split(',')]
-        d_depth = [int(s_l) for s_l in d_s_layers.replace(' ','').split(',')]
+        g_depth = [int(s_l) for s_l in g_s_layers.replace(' ','').replace("'", "").split(',')]
+        d_depth = [int(s_l) for s_l in d_s_layers.replace(' ','').replace("'", "").split(',')]
     else:
        raise ValueError(f"Unknown type of model type encountered: {model_type}") 
    
@@ -150,17 +150,41 @@ def generate_synthetic_data(path_to_run, sample_size, cp='all', denormalize=Fals
 
 if __name__ == '__main__':
 
-    number_of_runs = 1
+    number_of_runs = 11
     
     path_to_folder = "logs"
-    run_list = ['Full_STOCKS_DATA_2025_04_04_23_08_00']
+    run_list = [
+  
+  'particle_data_with_informer_model_2025_04_07_23_31_34',
+  #'particle_data_with_transformer_model_2025_04_07_22_57_50',
+  'particle_data_with_informerstack_model_2025_04_08_02_42_46',
+  'Stock_data_with_informerstack_model_2025_04_08_01_51_07',
+  'Stock_data_with_transformer_model_2025_04_07_22_35_53',
+  'Stock_data_with_informer_model_2025_04_07_22_58_14',
+  'Running_with_transformer_model_2025_04_07_21_47_10',
+  'Running_with_informer_model_2025_04_07_21_51_04',
+  'Running_with_informerstack_model_2025_04_08_00_05_36',
+  'Sine_with_transformer_model_2025_04_07_22_15_04',
+  'Sine_with_informer_model_2025_04_07_22_28_24',
+  'Sine_with_informerstack_model_2025_04_08_01_01_20',
+  
+  ]
     
     sample_size_list = [
-        3662
+        5826,5826,
+        3662,3662,3662,
+        6055,6055,6055,
+        10000,10000,10000
+        
     ]
     denormalize_list = [      
         False
     ]*number_of_runs
+    
+    cp_list = [163,163,
+    260,260,260,
+    599,599,599,
+    95,95,95]
     
     for run_no in range(number_of_runs):
         print(f"Prcoessing run no: {run_no} run: {run_list[run_no]}")
@@ -169,6 +193,7 @@ if __name__ == '__main__':
         
         denormalize= denormalize_list[run_no]
         sample_size =sample_size_list[run_no]
+        cp = cp_list[run_no]
         
-        generate_synthetic_data(path_to_run, sample_size, denormalize=denormalize)
+        generate_synthetic_data(path_to_run, sample_size, denormalize=denormalize, cp=cp)
     print("Processing Completed.")

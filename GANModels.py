@@ -338,7 +338,8 @@ class DeconvLayer(nn.Module):
         self.deconv_channels = nn.Conv2d(embed_dim, channels, 1, 1, 0)
         
         if add_seq_block:
-            self.deconv_seq = nn.Conv2d(red_seq_len, seq_len, 1, 1, 0)
+            #self.deconv_seq = nn.Conv2d(red_seq_len, seq_len, 1, 1, 0)
+            self.deconv_seq = nn.LazyConv2d(seq_len, 1, 1, 0)
             self.activation = nn.ELU()
             self.dropout = nn.Dropout(dropout)
             

@@ -1316,18 +1316,24 @@ class Inference:
         g_s_layers = find_value_from_log('g_s_layers', log_data)
         d_s_layers = find_value_from_log('d_s_layers', log_data)
         
+        print(g_s_layers)
+        print(d_s_layers)
         
         #TODO
         if model_type == 'transformer' or model_type=='informer':
             g_depth = g_depth
             d_depth = d_depth
         elif model_type=='informerstack':
-            g_depth = [int(s_l) for s_l in g_s_layers.replace(' ','').split(',')]
-            d_depth = [int(s_l) for s_l in d_s_layers.replace(' ','').split(',')]
+            g_depth = [int(s_l) for s_l in g_s_layers.replace(' ','').replace("'", "").split(',')]
+            d_depth = [int(s_l) for s_l in d_s_layers.replace(' ','').replace("'", "").split(',')]
+            print(g_depth)
+            print(d_depth)
         else:
             raise ValueError(f"Unknown type of model type encountered: {model_type}") 
 
         # set up model
+        print(g_depth)
+        print(d_depth)
         self.gen_net = Generator(seq_len=seq_len,
                             patch_size=patch_size, 
                             channels=channels, 
@@ -1790,7 +1796,19 @@ if __name__ == "__main__":
   import sys
 
   path_to_results = 'logs'
-  run_name_list = ['Full_STOCKS_DATA_2025_04_04_23_08_00']
+  run_name_list = ['Running_with_transformer_model_2025_04_07_21_47_10',
+  'Running_with_informer_model_2025_04_07_21_51_04',
+  'Sine_with_transformer_model_2025_04_07_22_15_04',
+  'Sine_with_informer_model_2025_04_07_22_28_24',
+  'Stock_data_with_transformer_model_2025_04_07_22_35_53',
+  #'particle_data_with_transformer_model_2025_04_07_22_57_50', #OOM error
+  'Stock_data_with_informer_model_2025_04_07_22_58_14',
+  'particle_data_with_informer_model_2025_04_07_23_31_34',
+  'Running_with_informerstack_model_2025_04_08_00_05_36',
+  'Sine_with_informerstack_model_2025_04_08_01_01_20',
+  'Stock_data_with_informerstack_model_2025_04_08_01_51_07',
+  'particle_data_with_informerstack_model_2025_04_08_02_42_46']
+  
   number_of_runs = len(run_name_list)
   
   # generate data for visualisation
