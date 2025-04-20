@@ -163,6 +163,8 @@ def sort_cps(cps):
         cps_less_than_100 = []
         cps_less_than_1000 = []
         cps_less_than_10000 = []
+        cps_less_than_100000 = []
+        cps_less_than_1000000 = []
         remaining_cps = []
         
         for cp in cps:
@@ -176,15 +178,21 @@ def sort_cps(cps):
                 cps_less_than_1000.append(cp)
             elif cp_num < 10000:
                 cps_less_than_10000.append(cp)
+            elif cp_num < 100000:
+                cps_less_than_100000.append(cp)
+            elif cp_num < 1000000:
+                cps_less_than_1000000.append(cp)
             else:
-                remaining_cps.append(cp)
+                raise ValueError(f"Found value: {cp} that is not currently supported for sorting.")
         
         cps_less_than_10.sort()
         cps_less_than_100.sort()
         cps_less_than_1000.sort()
         cps_less_than_10000.sort()
+        cps_less_than_100000.sort()
+        cps_less_than_1000000.sort()
 
-        _cps = cps_less_than_10 + cps_less_than_100 + cps_less_than_1000 + cps_less_than_10000
+        _cps = cps_less_than_10 + cps_less_than_100 + cps_less_than_1000 + cps_less_than_10000 + cps_less_than_100000 + cps_less_than_1000000
 
         return _cps
 
